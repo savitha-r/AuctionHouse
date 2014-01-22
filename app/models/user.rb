@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -10,4 +12,9 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def is_admin?
+    self.is_admin == true
+  end
+  
 end
