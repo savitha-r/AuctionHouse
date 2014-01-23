@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  amount: 1
+  credit_points: 1
+  transaction_ref: MyString
+
+two:
+  user_id: 1
+  amount: 1
+  credit_points: 1
+  transaction_ref: MyString

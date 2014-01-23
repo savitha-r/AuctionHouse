@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  price: 1
+  starting_time: 2014-01-23 07:59:52
+  ending_time: 2014-01-23 07:59:52
+  starting_bid: 1
+  bid_unit: 1
+
+two:
+  description: MyString
+  price: 1
+  starting_time: 2014-01-23 07:59:52
+  ending_time: 2014-01-23 07:59:52
+  starting_bid: 1
+  bid_unit: 1

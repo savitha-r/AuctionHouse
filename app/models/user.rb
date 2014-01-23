@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  has_many :bids, dependent: :destroy
+  has_many :items, :through => :bids
+
 
 
   def self.from_omniauth(auth)
