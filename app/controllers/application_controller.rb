@@ -4,4 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include SessionsHelper
+
+  class NotFound < StandardError
+  end
+
+  rescue_from NotFound, :with => :custom_error
+ 
+  def get_entity entity
+  	raise NotFound unless entity.present?
+    return entity
+  end
+
+  def custom_error
+  	render "public/404", :status => 404
+  end
+
 end
