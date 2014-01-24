@@ -10,6 +10,14 @@ AuctionHouse::Application.routes.draw do
     resources :items
   end
 
+  namespace :members do
+    get 'dashboard' => 'members#index'
+    resources :items, :only => [:index, :show] do
+      get 'bid' => "items#bid"
+    end
+    resources :payments
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

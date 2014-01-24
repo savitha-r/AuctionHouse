@@ -19,6 +19,7 @@
   </div>
 
   <% if signed_in? %>
+    <p class="navbar-text navbar-right"><%=  link_to 'Sign Out', signout_path %></p>
     <% if current_user.is_admin? %>
     <p class="navbar-text navbar-right"><%=  link_to 'Dashboard', admin_dashboard_path %></p>
     <% end %>

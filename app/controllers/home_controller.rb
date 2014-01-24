@@ -2,7 +2,11 @@ class HomeController < ApplicationController
 
 	def index
 		if signed_in?
-			redirect_to admin_dashboard_path if current_user.is_admin?
+			if current_user.is_admin?
+				redirect_to admin_dashboard_path
+			else
+				redirect_to members_dashboard_path
+			end
 		end
 	end
 	
