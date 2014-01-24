@@ -19,6 +19,9 @@
   </div>
 
   <% if signed_in? %>
+    <% if current_user.is_admin? %>
+    <p class="navbar-text navbar-right"><%=  link_to 'Dashboard', admin_dashboard_path %></p>
+    <% end %>
   	<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.name %></a></p>
   <% end %>
 </nav>

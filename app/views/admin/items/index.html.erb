@@ -1,0 +1,22 @@
+<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Ending Time</th>
+            <th>Bid</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.ending_time.to_s %></td>
+            <td><%= item.starting_bid.to_s %></td>
+            <td><%=  link_to 'View', admin_item_path(item) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>

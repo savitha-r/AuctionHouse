@@ -1,0 +1,11 @@
+<%=  link_to 'Back', admin_items_path %>
+<%=  link_to 'Edit', edit_admin_item_path(@item) %>
+<%=  link_to 'Delete', admin_item_path(@item), :method => :delete, :confirm => "Are you sure?" %>
+<ul class="list-group">
+  <li class="list-group-item">Name: <%= @item.name %></li>
+  <li class="list-group-item">Description: <%= @item.description %></li>
+  <li class="list-group-item">Starting Time: <%= @item.starting_time.to_s %></li>
+  <li class="list-group-item">Ending Time: <%= @item.ending_time.to_s %></li>
+  <li class="list-group-item">Bid Unit: <%= @item.bid_unit.to_s %></li>
+  <li class="list-group-item">Bid: <%= @item.starting_bid.to_s %></li>
+</ul>
