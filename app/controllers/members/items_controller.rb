@@ -12,13 +12,13 @@ class Members::ItemsController < Members::MembersController
 	def bid
 		@item = get_entity Item.find_by_id(params[:item_id])
 		@bid = Bid.initialize_with_defaults(@item,current_user,@item.next_bid)
-		@item.starting_bid = @item.next_bid
-		if @bid.save && @item.save
+		@item.price = @item.place_bid
+		if @bid.save
 			flash[:notice] = "Your bid has been placed successfully."
-			redirect_to members_item_path(@item)
 		else
-			redirect_to members_item_path(@item)
+			flash[:notice] = "There was an error placing the bid please try again."
 		end
+		redirect_to members_item_path(@item)
 	end
 
 end

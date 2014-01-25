@@ -10,7 +10,6 @@ class Admin::ItemsController < Admin::AdminController
 	end
 
 	def create
-		binding.pry
 		@item = Item.new(item_parameters)
 		if @item.save
 			redirect_to admin_item_path(@item)

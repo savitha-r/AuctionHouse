@@ -1,13 +1,5 @@
 <%=  link_to 'Back', members_items_path %>
 
-<% if @item.errors.any? %>
-		<ul>
-  			<% @item.errors.full_messages.each do |msg| %>
-    			<li><%= msg %></li>
-  			<% end %>
-		</ul>
-<% end %>
-
 
 <ul class="list-group">
   <li class="list-group-item">Name: <%= @item.name %></li>
@@ -15,7 +7,7 @@
   <li class="list-group-item">Starting Time: <%= @item.starting_time.to_s %></li>
   <li class="list-group-item">Ending Time: <%= @item.ending_time.to_s %></li>
   <li class="list-group-item">Bid Unit: <%= @item.bid_unit.to_s %></li>
-  <li class="list-group-item">Current Bid: <%= @item.starting_bid.to_s %></li>
+  <li class="list-group-item">Current Bid: <%= @item.price.to_s %></li>
 </ul>
 
 <div class="btn-group btn-group-lg"><%=  link_to 'Bid', members_item_bid_path(@item), :confirm => "You are placing a bid of #{@item.next_bid.to_s} credit points. Are you sure?", :class => "btn btn-default" %></div>
