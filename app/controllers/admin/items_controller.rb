@@ -12,6 +12,7 @@ class Admin::ItemsController < Admin::AdminController
 	def create
 		@item = Item.new(item_parameters)
 		if @item.save
+			@item.delay(run_at: @item.ending_time, :item_id => @item.id).item_expired
 			redirect_to admin_item_path(@item)
 		else
 			render "new"

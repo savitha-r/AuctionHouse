@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :bids, dependent: :destroy
   has_many :items, :through => :bids
+  has_many :payments
 
 
 
@@ -18,6 +19,21 @@ class User < ActiveRecord::Base
 
   def is_admin?
     self.is_admin == true
+  end
+
+  def update_credit(credit_points)
+    self.creditpoints = self.creditpoints + credit_points
+    self.save
+  end
+
+  def deduct(bid_amount)
+    if self.creditpoints >= bid_amount
+      self.creditpoints = self.creditpoints - bid_amount
+      self.save
+      return true
+    else
+      return false
+    end
   end
   
 end

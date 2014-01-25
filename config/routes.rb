@@ -14,8 +14,14 @@ AuctionHouse::Application.routes.draw do
     get 'dashboard' => 'members#index'
     resources :items, :only => [:index, :show] do
       get 'bid' => "items#bid"
+      resources :bids, :only => [:index]
     end
-    resources :payments
+    resources :payments do 
+      get 'payment_success' => "payments#success"
+      get 'payment_fail' => "payments#fail"
+      get 'pay' => "payments#pay"
+    end
+
   end
 
   # Example of regular route:

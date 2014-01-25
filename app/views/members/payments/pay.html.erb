@@ -1,0 +1,77 @@
+<ul class="list-group">
+  <li class="list-group-item">Amount: <%= @payment.amount %></li>
+</ul>
+
+Please click the button below to pay $<%= @payment.amount %>
+
+<% if @payment.amount == 5 %>
+
+<form action="https://sandbox.smoovpay.com/access" method="post">
+<input type="hidden" name="action" value="pay" />
+<input type="hidden" name="currency" value="SGD" />
+<input type="hidden" name="version" value="2.0" />
+<input type="hidden" name="item_name_1" value="$5 Top Up" />
+<input type="hidden" name="item_description_1" value="You will recieve 500 credit points." />
+<input type="hidden" name="item_quantity_1" value="1" />
+<input type="hidden" name="item_amount_1" value="0.00" />
+<input type="hidden" name="merchant" value="savitha.r@2359media.com" />
+<input type="hidden" name="ref_id" value="5TopUp" />
+<input type="hidden" name="delivery_charge" value="0.00" />
+<input type="hidden" name="tax_amount" value="0.00" />
+<input type="hidden" name="tax_percentage" value="0.00" />
+<input type="hidden" name="total_amount" value="5.00" />
+<input type="hidden" name="str_url" value="" />
+<input type="hidden" name="success_url" value="<%= members_payment_payment_success_url(@payment) %>" />
+<input type="hidden" name="cancel_url" value="<%= members_payment_payment_fail_url(@payment) %>" />
+<input type="hidden" name="signature" value="0010fade9d97cb5305cc33f30f5925d3836293db" />
+<input type="hidden" name="signature_algorithm" value="sha1" />
+<input type="submit" name="submit v2" alt="SmoovPay!" />
+</form>
+
+<% elsif @payment.amount == 10 %>
+<form action="https://sandbox.smoovpay.com/access" method="post">
+<input type="hidden" name="action" value="pay" />
+<input type="hidden" name="currency" value="SGD" />
+<input type="hidden" name="version" value="2.0" />
+<input type="hidden" name="item_name_1" value="Top up $10" />
+<input type="hidden" name="item_description_1" value="You will recieve 1000 credit points" />
+<input type="hidden" name="item_quantity_1" value="1" />
+<input type="hidden" name="item_amount_1" value="0.00" />
+<input type="hidden" name="merchant" value="savitha.r@2359media.com" />
+<input type="hidden" name="ref_id" value="Topup10" />
+<input type="hidden" name="delivery_charge" value="0.00" />
+<input type="hidden" name="tax_amount" value="0.00" />
+<input type="hidden" name="tax_percentage" value="0.00" />
+<input type="hidden" name="total_amount" value="10.00" />
+<input type="hidden" name="str_url" value="" />
+<input type="hidden" name="success_url" value="<%= members_payment_payment_success_url(@payment) %>" />
+<input type="hidden" name="cancel_url" value="<%= members_payment_payment_fail_url(@payment) %>" />
+<input type="hidden" name="signature" value="a43fb88c23028ee2bb71f2635cf4870e389c14c4" />
+<input type="hidden" name="signature_algorithm" value="sha1" />
+<input type="submit" name="submit v2" alt="SmoovPay!" />
+
+<% elsif @payment.amount == 50 %>
+
+<form action="https://sandbox.smoovpay.com/access" method="post">
+<input type="hidden" name="action" value="pay" />
+<input type="hidden" name="currency" value="SGD" />
+<input type="hidden" name="version" value="2.0" />
+<input type="hidden" name="item_name_1" value="Top Up $50" />
+<input type="hidden" name="item_description_1" value="You will recieve 5000 credit points" />
+<input type="hidden" name="item_quantity_1" value="1" />
+<input type="hidden" name="item_amount_1" value="0.00" />
+<input type="hidden" name="merchant" value="savitha.r@2359media.com" />
+<input type="hidden" name="ref_id" value="TopUp50" />
+<input type="hidden" name="delivery_charge" value="0.00" />
+<input type="hidden" name="tax_amount" value="0.00" />
+<input type="hidden" name="tax_percentage" value="0.00" />
+<input type="hidden" name="total_amount" value="50.00" />
+<input type="hidden" name="str_url" value="" />
+<input type="hidden" name="success_url" value="<%= members_payment_payment_success_url(@payment) %>" />
+<input type="hidden" name="cancel_url" value="<%= members_payment_payment_fail_url(@payment) %>" />
+<input type="hidden" name="signature" value="e3cdde454c440edb218787dcf376df7470de2c5e" />
+<input type="hidden" name="signature_algorithm" value="sha1" />
+<input type="submit" name="submit v2" alt="SmoovPay!" />
+</form>
+<% end %>
+

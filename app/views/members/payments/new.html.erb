@@ -1,0 +1,15 @@
+<%= form_for [:members, @payment], :role => "form" do |f| %>
+
+<% if @payment.errors.any? %>
+		<ul>
+  			<% @payment.errors.full_messages.each do |msg| %>
+    			<li><%= msg %></li>
+  			<% end %>
+		</ul>
+	<% end %>
+
+	<%= f.label :amount %><br>
+	<%= f.select 'amount', options_for_select([Payment::AMOUNTS[:FIVE], Payment::AMOUNTS[:TEN], Payment::AMOUNTS[:FIFTY]].each_with_index.map {|name, index| [name,name]}) %>
+	<div class="btn-group btn-group-lg"><%= f.submit "Submit", :class => "btn btn-default" %></div>
+
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125121300) do
+ActiveRecord::Schema.define(version: 20140125130404) do
 
   create_table "bids", force: true do |t|
     t.integer  "user_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140125121300) do
     t.string   "transaction_ref"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   create_table "users", force: true do |t|

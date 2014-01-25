@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
   	render "public/404", :status => 404
   end
 
+  def default_url_options
+    if Rails.env.development?
+      {:host => "http://localhost:3000"}
+    end
+  end
+
 end

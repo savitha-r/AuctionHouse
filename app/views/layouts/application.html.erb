@@ -22,6 +22,8 @@
     <p class="navbar-text navbar-right"><%=  link_to 'Sign Out', signout_path %></p>
     <% if current_user.is_admin? %>
     <p class="navbar-text navbar-right"><%=  link_to 'Dashboard', admin_dashboard_path %></p>
+    <% else %>
+    <p class="navbar-text navbar-right"><%=  link_to 'Dashboard', members_dashboard_path %></p>
     <% end %>
   	<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.name %></a></p>
   <% end %>
