@@ -7,7 +7,11 @@ AuctionHouse::Application.routes.draw do
 
   namespace :admin do
     get 'dashboard' => 'admin#index'
-    resources :items
+    resources :items do
+      collection do
+        get 'report' => "items#report"
+      end
+    end
   end
 
   namespace :members do

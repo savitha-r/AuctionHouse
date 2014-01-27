@@ -31,6 +31,7 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'pry'
 gem 'bootstrap-datepicker-rails'
 gem 'delayed_job_active_record'
+gem 'backup'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

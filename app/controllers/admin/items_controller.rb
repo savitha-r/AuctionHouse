@@ -44,6 +44,14 @@ class Admin::ItemsController < Admin::AdminController
 		redirect_to admin_items_path
 	end
 
+	def report
+		@items = Item.order(:name)
+		path = Rails.root.to_s + '/tmp/report/report.csv'
+		File.open(path, 'w') {|f| f.write(Item.to_csv(@items)) }
+		system "backup perform --trigger report --config_file config/backup_report.rb --root-path=/Users/xx/Documents/Savitha/Savitha-Lab/AuctionHouse"
+		redirect_to admin_dashboard_path  		
+	end
+
 	private
 
 	def convert_dates
