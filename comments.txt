@@ -1,0 +1,2 @@
+
+- excessive use of unnecessary "self" in model

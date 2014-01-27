@@ -3,6 +3,7 @@ class Members::ItemsController < Members::MembersController
 
 	def index
 		current_time = DateTime.now
+		# what is the problem here?
 		@items = Item.where("ending_time > ?", current_time)
 	end
 

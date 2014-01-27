@@ -2,6 +2,7 @@ class Admin::ItemsController < Admin::AdminController
 	before_filter :convert_dates, :only => [:create]
 
 	def index
+		# what is wrong with this?
 		@items = Item.all
 	end
 
@@ -26,6 +27,7 @@ class Admin::ItemsController < Admin::AdminController
 	def update
 		@item = get_entity Item.find_by_id(params[:id])
 		@item.assign_attributes(item_parameters)
+		# what's wrong with this?
 		if @item.save
 			redirect_to admin_item_path(@item)
 		else
@@ -40,12 +42,15 @@ class Admin::ItemsController < Admin::AdminController
 
 	def destroy
 		@item = get_entity Item.find_by_id(params[:id])
+		# how to resolve this?
 		@item.destroy!
 		redirect_to admin_items_path
 	end
 
 	def report
 		@items = Item.order(:name)
+
+		# what's wrong with filename?
 		path = Rails.root.to_s + '/tmp/report/report.csv'
 		File.open(path, 'w') {|f| f.write(Item.to_csv(@items)) }
 		system "backup perform --trigger report --config_file config/backup_report.rb --root-path=/Users/xx/Documents/Savitha/Savitha-Lab/AuctionHouse"

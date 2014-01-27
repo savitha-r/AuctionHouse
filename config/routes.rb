@@ -6,6 +6,7 @@ AuctionHouse::Application.routes.draw do
   root 'home#index'
 
   namespace :admin do
+    # we used to go through this once
     get 'dashboard' => 'admin#index'
     resources :items do
       collection do

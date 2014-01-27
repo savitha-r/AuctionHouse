@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # do you need to define this method?
   def is_admin?
     self.is_admin == true
   end
@@ -27,6 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def deduct(bid_amount)
+    # see your save, true, false
     if self.creditpoints >= bid_amount
       self.creditpoints = self.creditpoints - bid_amount
       self.save

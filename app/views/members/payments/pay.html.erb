@@ -6,6 +6,8 @@ Please click the button below to pay $<%= @payment.amount %>
 
 <% if @payment.amount == 5 %>
 
+<!-- why like this? -->
+
 <form action="https://sandbox.smoovpay.com/access" method="post">
 <input type="hidden" name="action" value="pay" />
 <input type="hidden" name="currency" value="SGD" />

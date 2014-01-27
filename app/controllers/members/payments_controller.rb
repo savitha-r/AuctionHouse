@@ -1,5 +1,6 @@
-class Members::PaymentsController < Members::MembersController
+# please explain this class
 
+class Members::PaymentsController < Members::MembersController  
 	def new
 		@payment = Payment.new
 	end
