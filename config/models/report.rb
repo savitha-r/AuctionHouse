@@ -9,7 +9,7 @@
 # For more information about Backup's components, see the documentation at:
 # http://meskyanichi.github.io/backup
 #
-Model.new(:report, 'Description for report') do
+Model.new(:report, 'Generate report') do
 
   archive :my_archive do |archive|
     # Run the `tar` command using `sudo`
@@ -19,8 +19,8 @@ Model.new(:report, 'Description for report') do
   end
 
   store_with SFTP do |server|
-    server.username = 'guest2359'
-    server.password = 'guestuser'
+    server.username = 'guestuser'
+    server.password = 'guest2359'
     server.ip       = 'sftp.2359media.net'
     server.port     = 22
     server.path     = '~/backups/'

@@ -14,6 +14,7 @@
 # end
 
 every 1.day, :at => '4:30 am' do
+  command 'rake backup:report'	
   command "backup perform --trigger report --config_file backup_report.rb"
 end
 #
